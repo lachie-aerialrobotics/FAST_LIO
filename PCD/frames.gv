@@ -1,0 +1,19 @@
+digraph G {
+"mocap" -> "hexacopter"[label="Broadcaster: /vicon\nAverage rate: 99.380 Hz\nMost recent transform: 1662044954.639 ( 0.012 sec old)\nBuffer length: 4.941 sec\n"];
+"map" -> "mocap"[label="Broadcaster: /transform_map2mocap\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"hexacopter" -> "base_link"[label="Broadcaster: /transform_hex2base_link\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"camera_init" -> "body"[label="Broadcaster: /laserMapping\nAverage rate: 20.169 Hz\nMost recent transform: 1662044954.570 ( 0.081 sec old)\nBuffer length: 5.900 sec\n"];
+"map" -> "odom"[label="Broadcaster: /transform_map2odom\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"body" -> "os_sensor"[label="Broadcaster: /transform_body2sensor\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"odom" -> "camera_init"[label="Broadcaster: /transform_odom2camera_init\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "vision_estimate"[label="Broadcaster: /transform_baselink2vision\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"os_sensor" -> "os_imu"[label="Broadcaster: /os_cloud_node\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"os_sensor" -> "os_lidar"[label="Broadcaster: /os_cloud_node\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"map" -> "map_ned"[label="Broadcaster: /mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"odom" -> "odom_ned"[label="Broadcaster: /mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "base_link_frd"[label="Broadcaster: /mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1662044954.651 sec old)\nBuffer length: 0.000 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1662044954.651"[ shape=plaintext ] ;
+ }->"map";
+}
