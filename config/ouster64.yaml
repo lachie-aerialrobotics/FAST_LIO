@@ -2,7 +2,7 @@ common:
     lid_topic:  "/os_cloud_node/points"
     imu_topic:  "/mavros/imu/data"
     time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
-    time_offset_lidar_to_imu: 0.0 # Time offset between lidar and IMU calibrated by other algorithms, e.g. LI-Init (can be found in README).
+    time_offset_lidar_to_imu: 0.018825 # Time offset between lidar and IMU calibrated by other algorithms, e.g. LI-Init (can be found in README).
                                   # This param will take effect no matter what time_sync_en is. So if the time offset is not known exactly, please set as 0.0
     
 preprocess:
@@ -19,12 +19,12 @@ mapping:
     fov_degree:    180
     det_range:     150.0
     extrinsic_est_en:  false      # true: enable the online estimation of IMU-LiDAR extrinsic
-    extrinsic_T: [ 0.111284, -0.123266, 0.038224 ]
-    extrinsic_R: [0.999147,  0.019041, -0.036644, -0.017418,  0.998875,  0.044113, 0.037443, -0.043437,  0.998354]
+    extrinsic_T: [ 0.201961, -0.130809,  0.100580 ]
+    extrinsic_R: [0.999681, -0.025246,  0.000760, 0.025200,  0.998987,  0.037286, -0.001701, -0.037255,  0.999304]
 
 publish:
     path_en:  false
-    scan_publish_en:  true       # false: close all the point cloud output
+    scan_publish_en:  false       # false: close all the point cloud output
     dense_publish_en: false       # false: low down the points number in a global-frame point clouds scan.
     scan_bodyframe_pub_en: false  # true: output the point cloud scans in IMU-body-frame
 
