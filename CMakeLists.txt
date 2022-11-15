@@ -55,6 +55,8 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   eigen_conversions
   genmsg
+  nodelet
+  pluginlib
 )
 
 find_package(Eigen3 REQUIRED)
@@ -80,13 +82,20 @@ generate_messages(
 )
 
 catkin_package(
-  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy std_msgs message_runtime
+  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy std_msgs message_runtime nodelet
   DEPENDS EIGEN3 PCL
   INCLUDE_DIRS
 )
 
-add_executable(fastlio_mapping src/laserMapping.cpp include/ikd-Tree/ikd_Tree.cpp src/preprocess.cpp)
-target_link_libraries(fastlio_mapping ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${PYTHON_LIBRARIES})
-target_include_directories(fastlio_mapping PRIVATE ${PYTHON_INCLUDE_DIRS})
 
-add_dependencies(fastlio_mapping fast_lio_generate_messages_cpp)
+add_library(fast_lio src/laserMappingNodelet.cpp include/ikd-Tree/ikd_Tree.cpp src/preprocess.cpp)
+# add_executable(fastlio_mapping )
+target_link_libraries(fast_lio ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${PYTHON_LIBRARIES})
+target_include_directories(fast_lio PRIVATE ${PYTHON_INCLUDE_DIRS})
+add_dependencies(fast_lio fast_lio_generate_messages_cpp)
+
+
+# add_dependencies(laserMappingNodelet ${PROJECT_NAME})
+# target_link_libraries(laserMappingNodelet ${catkin_LIBRARIES})
+
+
