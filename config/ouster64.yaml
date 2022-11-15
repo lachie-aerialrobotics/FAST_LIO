@@ -1,5 +1,5 @@
 common:
-    lid_topic:  "/os_cloud_node/points"
+    lid_topic:  "/os_cloud_nodelet/points"
     imu_topic:  "/mavros/imu/data"
     time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
     time_offset_lidar_to_imu: 0.018825 # Time offset between lidar and IMU calibrated by other algorithms, e.g. LI-Init (can be found in README).
@@ -29,6 +29,6 @@ publish:
     scan_bodyframe_pub_en: false  # true: output the point cloud scans in IMU-body-frame
 
 pcd_save:
-    pcd_save_en: true
+    pcd_save_en: false
     interval: 1000                 # how many LiDAR frames saved in each pcd file; 
                                  # -1 : all frames will be saved in ONE pcd file, may lead to memory crash when having too much frames.
