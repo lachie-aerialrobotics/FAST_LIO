@@ -5,9 +5,9 @@
 
     <rosparam command="load" file="$(find fast_lio)/config/ouster64.yaml" />
 
-    <param name="feature_extract_enable" type="bool" value="true"/>
-    <param name="point_filter_num" type="int" value="4"/>
-    <param name="max_iteration" type="int" value="2" />
+    <param name="feature_extract_enable" type="bool" value="false"/>
+    <param name="point_filter_num" type="int" value="2"/>
+    <param name="max_iteration" type="int" value="3" />
     <param name="filter_size_surf" type="double" value="0.25" />
     <param name="filter_size_map" type="double" value="0.35" />
     <param name="cube_side_length" type="double" value="100" />
